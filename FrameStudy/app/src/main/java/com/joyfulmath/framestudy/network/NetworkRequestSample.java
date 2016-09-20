@@ -4,6 +4,9 @@ import com.joyfulmath.framestudy.utils.TraceLog;
 import com.joyfulmath.networkutils.NetWorkResponse;
 import com.joyfulmath.networkutils.NetworkRequestManager;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Administrator on 2016/9/20 0020.
  */
@@ -25,8 +28,11 @@ public class NetworkRequestSample {
                 TraceLog.i(response);
             }
         });
-        manager.requestHttp(NetworkRequestManager.METHOD_GET,
+        Map<String,String> map = new HashMap<>();
+        map.put("key","value");
+        manager.requestHttp(NetworkRequestManager.METHOD_POST,
                 hostUrl,
-                methodUrl);
+                methodUrl,
+                map);
     }
 }
