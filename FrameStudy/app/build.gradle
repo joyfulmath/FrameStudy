@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.joyfulmath.framestudy"
-        minSdkVersion 22
+        minSdkVersion 21
         targetSdkVersion 23
         versionCode 20160001
         versionName "1.0.1"

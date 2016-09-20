@@ -30,7 +30,9 @@ public class OkhttpRequestManagerImpl extends NetworkRequestBaseManager {
     @Override
     public void requestHttp(int method, String hostUrl, String methodUrl) {
         String url = hostUrl+methodUrl;
-        final Request request = new okhttp3.Request.Builder().url(url).build();
+        final Request request = new okhttp3.Request.Builder().url(url)
+                .addHeader("Accept", "application/json")
+                .build();
         Call call = client.newCall(request);
         call.enqueue(callBackListener);
     }
@@ -44,7 +46,7 @@ public class OkhttpRequestManagerImpl extends NetworkRequestBaseManager {
 
         @Override
         public void onResponse(Call call, Response response) throws IOException {
-            deliverSuccess(response.body().toString());
+            deliverSuccess(response.body().string());
         }
     }
 }
